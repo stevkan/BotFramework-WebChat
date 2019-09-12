@@ -60,6 +60,23 @@ const DEFAULT_OPTIONS = {
   // Rich Cards
   richCardWrapTitle: false, // Applies to subtitles as well
 
+  // Adaptive Cards
+  adaptiveCardBackgroundColor: 'White',
+  adaptiveCardBorderColor: '#E6E6E6',
+  adaptiveCardBorderRadius: 2,
+  adaptiveCardBorderStyle: 'none',
+  adaptiveCardBorderWidth: 1,
+  adaptiveCardButtonBackgroundColor: 'White',
+  adaptiveCardButtonBorder: `solid 1px ${DEFAULT_ACCENT}`,
+  adaptiveCardButtonTextColor: DEFAULT_ACCENT,
+  adaptiveCardDisabledButtonBackgroundColor: 'White',
+  adaptiveCardDisabledButtonBorder: 'solid 1px #E6E6E6',
+  adaptiveCardDisabledButtonTextColor: DEFAULT_SUBTLE,
+  adaptiveCardImageMaxHeight: '100%',
+  adaptiveCardImageMinWidth: '0',
+  adaptiveCardImageWidth: '100%',
+  adaptiveCardTextColor: 'Black',
+
   // Root
   rootHeight: '100%',
   rootWidth: '100%',

@@ -3,7 +3,8 @@ import { defaultStyleOptions } from 'botframework-webchat-component';
 
 export default ({
   accent,
-  bubbleTextColor,
+  adaptiveCardBackgroundColor,
+  adaptiveCardTextColor,
   cardEmphasisBackgroundColor,
   primaryFont,
   subtle
@@ -12,21 +13,22 @@ export default ({
     default: {
       foregroundColors: {
         default: {
-          default: bubbleTextColor,
+          default: adaptiveCardTextColor,
           subtle
         },
         accent: {
           default: accent,
           subtle: accent
         }
-      }
+      },
+      backgroundColor: adaptiveCardBackgroundColor
     },
     emphasis: {
-      backgroundColor: cardEmphasisBackgroundColor,
       default: {
-        default: bubbleTextColor,
+        default: adaptiveCardTextColor,
         subtle
-      }
+      },
+      backgroundColor: cardEmphasisBackgroundColor
     }
   },
   supportsInteractivity: true,
