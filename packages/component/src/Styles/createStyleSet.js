@@ -1,3 +1,5 @@
+/*eslint "complexity": ["error", { "max": 25 }] */
+
 import createActivitiesStyle from './StyleSet/Activities';
 import createActivityStyle from './StyleSet/Activity';
 import createAudioAttachmentStyle from './StyleSet/AudioAttachment';
@@ -68,6 +70,8 @@ export default function createStyleSet(options) {
   // TODO: [P4] Deprecate this code after bump to v5
   const { bubbleBorder, bubbleFromUserBorder } = options;
 
+  // const { bubbleBorder, bubbleFromUserBorder } = options;
+
   if (bubbleBorder) {
     console.warn(
       'Web Chat: styleSet.bubbleBorder is being deprecated. Please use bubbleFromBotBorderColor, bubbleFromBotBorderStyle, and, bubbleFromBotBorderWidth.'
@@ -107,6 +111,32 @@ export default function createStyleSet(options) {
       options.bubbleFromUserBorderWidth = parseInt(width, 10);
     }
   }
+
+  options.bubbleFromBotBackground =
+    options.bubbleBackground !== null ? options.bubbleBackground : options.bubbleFromBotBackground;
+
+  options.bubbleFromBotBorderColor =
+    options.bubbleBorderColor !== null ? options.bubbleBorderColor : options.bubbleFromBotBorderColor;
+
+  options.bubbleFromBotBorderRadius =
+    options.bubbleBorderRadius !== null ? options.bubbleBorderRadius : options.bubbleFromBotBorderRadius;
+
+  options.bubbleFromBotBorderStyle =
+    options.bubbleBorderStyle !== null ? options.bubbleBorderStyle : options.bubbleFromBotBorderStyle;
+
+  options.bubbleFromBotBorderWidth =
+    options.bubbleBorderWidth !== null ? options.bubbleBorderWidth : options.bubbleFromBotBorderWidth;
+
+  options.bubbleFromBotTextColor =
+    options.bubbleTextColor !== null ? options.bubbleTextColor : options.bubbleFromBotTextColor;
+
+  options.bubbleFromBotNubOffset =
+    options.bubbleNubOffset !== null ? options.bubbleNubOffset : options.bubbleFromBotNubOffset;
+
+  options.bubbleFromBotNubSize = options.bubbleNubSize !== null ? options.bubbleNubSize : options.bubbleFromBotNubSize;
+
+  options.bubbleFromBotNubBorderColor =
+    options.bubbleNubBorderColor !== null ? options.bubbleNubBorderColor : options.bubbleFromBotNubBorderColor;
 
   return {
     activities: createActivitiesStyle(options),

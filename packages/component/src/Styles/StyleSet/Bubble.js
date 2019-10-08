@@ -31,6 +31,8 @@ function svgToDataURI(svg) {
 }
 
 export default function createBubbleStyle({
+  bubbleAttachmentBubbleBackground,
+  bubbleAttachmentBubbleBorderWidth,
   bubbleFromBotBackground,
   bubbleFromBotTextColor,
   bubbleFromBotBorderColor,
@@ -106,6 +108,11 @@ export default function createBubbleStyle({
         borderWidth: bubbleFromBotBorderWidth,
         color: bubbleFromBotTextColor,
         minHeight: bubbleMinHeight - bubbleFromBotBorderWidth * 2
+      },
+
+      '&.attachment.bubble > .webchat__bubble__content': {
+        background: bubbleAttachmentBubbleBackground,
+        borderWidth: bubbleAttachmentBubbleBorderWidth
       },
 
       '&.webchat__bubble_has_nub > .webchat__bubble__content': {
