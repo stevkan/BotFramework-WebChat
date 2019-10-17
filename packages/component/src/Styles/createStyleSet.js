@@ -68,9 +68,24 @@ export default function createStyleSet(options) {
   // Keep this list flat (no nested style) and serializable (no functions)
 
   // TODO: [P4] Deprecate this code after bump to v5
-  const { bubbleBorder, bubbleFromUserBorder } = options;
+  const {
+    bubbleBackground,
+    bubbleBorder,
+    bubbleBorderColor,
+    bubbleBorderRadius,
+    bubbleBorderStyle,
+    bubbleBorderWidth,
+    bubbleTextColor,
+    bubbleNubOffset,
+    bubbleNubSize,
+    bubbleNubBorderColor,
+    bubbleFromUserBorder
+  } = options;
 
-  // const { bubbleBorder, bubbleFromUserBorder } = options;
+  if (bubbleBackground) {
+    console.warn('Web Chat: styleSet.bubbleBackground is being deprecated. Please use bubbleFromBotBackground.');
+    options.bubbleFromBotBackground = bubbleBackground;
+  }
 
   if (bubbleBorder) {
     console.warn(
@@ -92,6 +107,48 @@ export default function createStyleSet(options) {
     }
   }
 
+  if (bubbleBorderColor) {
+    console.warn('Web Chat: styleSet.bubbleBorderColor is being deprecated. Please use bubbleFromBotBorderColor.');
+    options.bubbleFromBotBorderColor = bubbleBorderColor;
+  }
+
+  if (bubbleBorderRadius) {
+    console.warn('Web Chat: styleSet.bubbleBorderRadius is being deprecated. Please use bubbleFromBotBorderRadius.');
+    options.bubbleFromBotBorderRadius = bubbleBorderRadius;
+  }
+
+  if (bubbleBorderStyle) {
+    console.warn('Web Chat: styleSet.bubbleBorderStyle is being deprecated. Please use bubbleFromBotBorderStyle.');
+    options.bubbleFromBotBorderStyle = bubbleBorderStyle;
+  }
+
+  if (bubbleBorderWidth) {
+    console.warn('Web Chat: styleSet.bubbleBorderWidth is being deprecated. Please use bubbleFromBotBorderWidth.');
+    options.bubbleFromBotBorderWidth = bubbleBorderWidth;
+  }
+
+  if (bubbleTextColor) {
+    console.warn('Web Chat: styleSet.bubbleTextColor is being deprecated. Please use bubbleFromBotTextColor.');
+    options.bubbleFromBotTextColor = bubbleTextColor;
+  }
+
+  if (bubbleNubOffset) {
+    console.warn('Web Chat: styleSet.bubbleNubOffset is being deprecated. Please use bubbleFromBotNubOffset.');
+    options.bubbleFromBotNubOffset = bubbleNubOffset;
+  }
+
+  if (bubbleNubSize) {
+    console.warn('Web Chat: styleSet.bubbleNubSize is being deprecated. Please use bubbleFromBotNubSize.');
+    options.bubbleFromBotNubSize = bubbleNubSize;
+  }
+
+  if (bubbleNubBorderColor) {
+    console.warn(
+      'Web Chat: styleSet.bubbleNubBorderColor is being deprecated. Please use bubbleFromBotNubBorderColor.'
+    );
+    options.bubbleFromBotNubBorderColor = bubbleNubBorderColor;
+  }
+
   if (bubbleFromUserBorder) {
     console.warn(
       'Web Chat: styleSet.bubbleFromUserBorder is being deprecated. Please use bubbleFromUserBorderColor, bubbleFromUserBorderStyle, and, bubbleFromUserBorderWidth.'
@@ -111,32 +168,6 @@ export default function createStyleSet(options) {
       options.bubbleFromUserBorderWidth = parseInt(width, 10);
     }
   }
-
-  options.bubbleFromBotBackground =
-    options.bubbleBackground !== null ? options.bubbleBackground : options.bubbleFromBotBackground;
-
-  options.bubbleFromBotBorderColor =
-    options.bubbleBorderColor !== null ? options.bubbleBorderColor : options.bubbleFromBotBorderColor;
-
-  options.bubbleFromBotBorderRadius =
-    options.bubbleBorderRadius !== null ? options.bubbleBorderRadius : options.bubbleFromBotBorderRadius;
-
-  options.bubbleFromBotBorderStyle =
-    options.bubbleBorderStyle !== null ? options.bubbleBorderStyle : options.bubbleFromBotBorderStyle;
-
-  options.bubbleFromBotBorderWidth =
-    options.bubbleBorderWidth !== null ? options.bubbleBorderWidth : options.bubbleFromBotBorderWidth;
-
-  options.bubbleFromBotTextColor =
-    options.bubbleTextColor !== null ? options.bubbleTextColor : options.bubbleFromBotTextColor;
-
-  options.bubbleFromBotNubOffset =
-    options.bubbleNubOffset !== null ? options.bubbleNubOffset : options.bubbleFromBotNubOffset;
-
-  options.bubbleFromBotNubSize = options.bubbleNubSize !== null ? options.bubbleNubSize : options.bubbleFromBotNubSize;
-
-  options.bubbleFromBotNubBorderColor =
-    options.bubbleNubBorderColor !== null ? options.bubbleNubBorderColor : options.bubbleFromBotNubBorderColor;
 
   return {
     activities: createActivitiesStyle(options),
