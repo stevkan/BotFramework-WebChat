@@ -100,6 +100,10 @@ export default async function create({
     console.warn(
       'botframework-directlinespeech: Custom "userId" and "username" are currently not supported and are ignored.'
     );
+    
+    // "userID" receives the "PropertyId.Conversation_From_Id"
+    // If "userID" is passed in with a value, this will clear the property ensuring the "PropertyId.Conversation_From_Id" value is preserved
+    userID = undefined;
   }
 
   let config;
